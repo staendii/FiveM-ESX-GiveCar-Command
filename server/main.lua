@@ -57,7 +57,7 @@ RegisterCommand(Config.Command, function (source, args)
     local hasPerms = CheckPermission(id)
     if hasPerms then
         if GetPlayerName(target) ~= nil and vehicle ~= nil and plate ~= nil then
-            
+            TriggerClientEvent(GetCurrentResourceName()..":spawn", target, vehicle, plate)
         elseif GetPlayerName(id) ~= nil then
             TriggerClientEvent("esx:showNotification", id, "Usage: /givecar id vehicleModel plate")
         else

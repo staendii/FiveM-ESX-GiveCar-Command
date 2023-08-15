@@ -64,11 +64,10 @@ RegisterNetEvent(GetCurrentResourceName()..":getToken", function (tkn)
     TOKEN = tkn
 end)
 
-RegisterNetEvent(GetCurrentResourceName()..":spawn", function (model)
+RegisterNetEvent(GetCurrentResourceName()..":spawn", function (model, plate)
 	local playerPed = GetPlayerPed(-1)
 	local coords = GetEntityCoords(playerPed)
-
-	ESX.Game.SpawnVehicle(model, coords, 0.0, function(vehicle, plate)
+	ESX.Game.SpawnVehicle(model, coords, 0.0, function(vehicle)
 		if DoesEntityExist(vehicle) then
 			SetEntityVisible(vehicle, false, false)
 			SetEntityCollision(vehicle, false)
